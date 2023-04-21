@@ -19,8 +19,10 @@ Build the Docker image.
 
 docker-compose up
 
+
 Usage
 The application has a simple web interface that allows you to generate cryptocurrency addresses and view them in a list. To generate a new address, click the "Generate Address" button. The new address will be added to the list automatically.
+
 
 Configuration
 You can configure the application by modifying the config.py file. This file contains the default settings for the application, such as the port number and the cryptocurrency type.
