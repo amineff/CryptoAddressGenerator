@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      PGSQL_URI: postgresql://postgres:password@db:5432/addressbook
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: addressbook
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

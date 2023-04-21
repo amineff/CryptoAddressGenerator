@@ -1,16 +1,25 @@
-# This is a sample Python script.
+from flask import Flask, request
+from flask_restful import Resource, Api
+from models import Address, db
+from dotenv import load_dotenv
+from resources import AddressList, AddressRetrieve, AddressListAll
+import os
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from wallet_service import WalletService
 
+#load the enviroment variables
+load_dotenv()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('PGSQL_URI')
+db.init_app(app)
+api = Api(app)
 
+api.add_resource(AddressList, '/address')
+api.add_resource(AddressListAll, '/addresses')
+api.add_resource(AddressRetrieve, '/address/<int:address_id>')
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)
