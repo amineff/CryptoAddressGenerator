@@ -1,25 +1,25 @@
 Crypto Address Generator
 This is a simple Python application that generates cryptocurrency addresses and lists them. The application is designed to be run inside a Docker container.
 
-Requirements
+## Requirements
 Docker (version 17.05 or higher)
 Python (version 3.6 or higher)
 
-Installation
+## Installation
 
 To run the application, follow these steps:
 
 Clone the repository to your local machine.
 
-git clone https://github.com/amineff/CryptoAddressGenerator.git
+`git clone https://github.com/amineff/CryptoAddressGenerator.git`
 
-cd crypto-address-generator
+`cd crypto-address-generator`
 
 Build the Docker image.
 
-docker-compose up
+`docker-compose up`
 
-Usage
+## Usage
 The application has a simple web interface that allows you to generate cryptocurrency addresses and view them in a list. To generate a new address, click the "Generate Address" button. The new address will be added to the list automatically.
 
 Configuration

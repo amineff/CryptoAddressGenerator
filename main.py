@@ -1,11 +1,9 @@
-from flask import Flask, request
-from flask_restful import Resource, Api
-from models import Address, db
+from flask import Flask
+from flask_restful import Api
+from models import db
 from dotenv import load_dotenv
 from resources import AddressList, AddressRetrieve, AddressListAll
 import os
-
-from wallet_service import WalletService
 
 #load the enviroment variables
 load_dotenv()

@@ -7,7 +7,7 @@ db = SQLAlchemy()
 class Address(db.Model):
     __tablename__ = 'addresses'
     id = db.Column(db.Integer, primary_key=True)
-    address_id = db.Column(BigInteger, Sequence('my_table_address_id_seq'), unique=True)
+    address_id = db.Column(BigInteger, Sequence('my_table_address_id_seq'), unique=True) # generated address id faciltate the migration process to another DB
     coin = db.Column(db.String, nullable=False)
     address = db.Column(db.String(2083), nullable=False)
     wallet = db.Column(db.String, nullable=False)
